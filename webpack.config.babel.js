@@ -13,6 +13,11 @@ module.exports = env => {
       path: resolve('dist'),
       publicPath: '/dist/',
       pathinfo: ifNotProd(),
+      module: {
+        loaders: [
+          {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
+        ],
+      },
     },
     devtool: ifProd('source-map', 'eval'),
   })
